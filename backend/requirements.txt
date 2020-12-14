@@ -1,0 +1,24 @@
+# Core Packages
+Django==3.1.4
+djangorestframework==3.12.2
+django-cors-headers==3.5.0
+drf-yasg==1.20.0
+python-decouple==3.3
+
+# Coding standards
+flake8==3.8.4
+pylint==2.6.0
+colorlog==4.6.2
+
+# Server
+gunicorn==20.0.4
+
+# Testing
+coverage==5.3
+pytest-django==4.1.0
+parameterized==0.7.4
+
+# Debuggers
+ipython==7.19.0
+django-debug-toolbar==3.2
+django-extensions==3.1.0

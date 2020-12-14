@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  pre-commit:
+    build:
+      context: .
+      dockerfile: Dockerfile.pre-commit
+    image: docker.pkg.github.com/ajithpmohan/django-postgresql-boilerplate/pre-commit:1.0
+    command: pre-commit run --all-files
+    volumes:
+      - ./:/usr/src/app/

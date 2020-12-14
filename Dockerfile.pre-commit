@@ -1,0 +1,26 @@
+# The first instruction is what image we want to base our container on
+# We Use an official Python runtime as a parent image
+FROM python:3.8.2-alpine
+
+ENV BASE_DIR=/usr/src/app
+WORKDIR $BASE_DIR
+
+# install dependencies
+RUN pip install --no-cache-dir --upgrade pip
+
+# install git dependencies
+RUN apk add --update git
+
+# install pre-commit dependencies
+RUN apk add --no-cache --upgrade gcc musl-dev
+
+# install pre-commit
+RUN pip install pre-commit
+
+# Currently Pre-commit hooks setup only for `py` files
+COPY ./backend ./backend
+COPY ./.git ./.git
+COPY .pre-commit-config.yaml ./
+
+RUN pre-commit install
+RUN pre-commit autoupdate
